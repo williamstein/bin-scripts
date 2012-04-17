@@ -1,0 +1,2 @@
+#ssh -X -l was sage.math.washington.edu
+ssh -l wstein sage.math.washington.edu

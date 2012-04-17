@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+# By William Stein, January, 2004.
+
+import os, random, sys
+
+alpha = range(ord('a'),ord('z')) + range(ord('0'),ord('9')) + \
+            range(ord('A'),ord('Z')) + [ord('_')]
+
+if len(sys.argv) == 1:
+    n = 8
+else:
+    n = int(sys.argv[1])
+print ''.join([chr(random.choice(alpha))
+               for _ in range(n)])
+    
