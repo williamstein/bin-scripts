@@ -1,0 +1,43 @@
+#!/usr/bin/python
+
+import os, sys
+argv = sys.argv
+
+if len(argv) < 4:
+    print "*********\nThis is the replace command, by William Stein (was@math.harvard.edu)\n*********"
+    print "\tUsage: %s [-f] <from> <to> [file 1] [file 2] ..."%argv[0]
+    print "Optional argument -f is to not ask for confirmation.";
+    sys.exit(0)
+
+if argv[1] == "-f":
+    force = 1
+    from_string = argv[2]
+    to_string = argv[3]
+    start = 4
+else:
+    force = 0 
+    from_string = argv[1]
+    to_string = argv[2]
+    start = 3
+    if force:
+        start = start + 1       
+    a = raw_input("Replace '%s' by '%s' in %s [Y/n]? "%\
+              (from_string,to_string, argv[start:]))
+    if len(a) > 0 and a[0] == "n":
+        print "Not replacing."
+        sys.exit(0)
+
+for i in range(start,len(argv)):
+    name = argv[i]
+    try:
+        file = open(name,"r").read()
+    except:
+        print "WARNING: file %s not found"%name
+        continue
+    if file.find(from_string) != -1:
+        if not force:
+            print "Replacing '%s' by '%s' in %s."%(from_string,to_string,name)
+        #os.system("grep '%s' %s"%(from_string, name))
+        file = file.replace(from_string, to_string)
+        open(name,"w").write(file)
+

@@ -4,8 +4,10 @@ import sys, os, time
 
 # where trash is stored in home directory
 TRASHCAN=os.environ.get("TRASHCAN")
-if TRASHCAN==None:
-    TRASHCAN=".Trash"   
+
+if TRASHCAN is None:
+    TRASHCAN = ".Trash"   
+
 HOME=os.environ.get("HOME")
 argv=sys.argv
 
@@ -15,7 +17,7 @@ if not os.path.exists("%s/%s"%(HOME,TRASHCAN)):
 def contents():
     print "TRASH"
     print "---------------------------"
-    os.system("du -sch %s/trash"%HOME)
+    os.system("du -sch %s/%s"%(HOME, TRASHCAN))
     print "---------------------------"
 
 def all_contents():
