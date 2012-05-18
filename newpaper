@@ -1,0 +1,29 @@
+#!/usr/bin/env python
+
+import os, sys
+
+def usage():
+    print "Usage: %s paper_name"%sys.argv[0]
+
+if len(sys.argv) != 2:
+    usage()
+    sys.exit(1)
+
+name = sys.argv[1]
+
+if os.path.exists(name):
+    print "Directory %s already exists."%name
+    usage()
+    sys.exit(1)
+    
+os.makedirs(name)
+os.chdir(name)
+
+os.system("cp $HOME/papers/template/template.tex %s.tex"%name)
+os.system("cp $HOME/papers/template/.hgignore .")
+os.system("ln -s $HOME/papers/biblio/biblio.bib .")
+os.system("ln -s $HOME/papers/macros/macros.tex .")
+
+os.system("hg init")
+os.system("hg add %s.tex .hgignore"%name)
+os.system("hg ci -m 'initial version'")
