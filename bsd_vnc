@@ -1,0 +1,2 @@
+open -a "Chicken of the VNC"
+ssh -L 5900:localhost:5900 wstein@bsd.math.washington.edu
