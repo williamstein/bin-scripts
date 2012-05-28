@@ -1,0 +1,2 @@
+#!/bin/sh
+/Library/Frameworks/Maple.framework/Versions/Current/bin/maple $@
