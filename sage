@@ -1,1 +1,1 @@
-/Users/wstein/sage/build/current/sage
+/home/wstein/sage/build/sage-5.0/sage
