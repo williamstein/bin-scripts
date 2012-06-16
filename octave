@@ -1,1 +1,5 @@
-/Applications/Octave.app/Contents/Resources/bin/octave "$@"
+if [ `uname` = "Darwin" ]; then
+   /Applications/Octave.app/Contents/Resources/bin/octave "$@"
+else    
+   /usr/bin/octave "$@"
+fi
