@@ -2,15 +2,13 @@
 
 # By William Stein, January, 2004.
 
-import os, random, sys
+import os, random, string, sys
 
-alpha = range(ord('a'),ord('z')) + range(ord('0'),ord('9')) + \
-            range(ord('A'),ord('Z')) + [ord('_')]
+alpha = '_' + string.ascii_letters + string.digits
 
 if len(sys.argv) == 1:
     n = 8
 else:
     n = int(sys.argv[1])
-print ''.join([chr(random.choice(alpha))
-               for _ in range(n)])
+print ''.join([random.choice(alpha) for _ in range(n)])
     
