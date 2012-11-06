@@ -1,0 +1,41 @@
+#!/usr/bin/python
+
+import os, sys, time
+
+if len(sys.argv) < 3:
+    print "Usage: %s <files to watch> <cmd>"%(sys.argv[0])
+    sys.exit(1)
+
+cmd = sys.argv[-1]
+watched_files = sys.argv[1:-1]
+
+for file in watched_files:
+    if not os.path.exists(file):
+        raise RuntimeError, "The file %s must exist."%file
+
+t = dict([(name,os.path.getctime(name)) for name in watched_files])
+
+print cmd; os.system(cmd)
+
+def go():
+    global t
+    while True:
+        try:
+            for watch_file in watched_files:
+                try:
+                    t2 = os.path.getctime(watch_file)
+                except:
+                    continue
+                if t2 != t[watch_file]:
+                    t[watch_file] = t2
+                    print cmd; os.system(cmd)
+                    break
+        except OSError:
+            pass
+        time.sleep(0.25)
+
+try:
+    go()
+except KeyboardInterrupt:
+    print "Ctrl-C pressed; exiting watch."
+    
