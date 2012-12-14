@@ -1,0 +1,1 @@
+xterm -bg white -fg black -geometry 10x1 -e batmon

@@ -32,7 +32,7 @@ def go():
                     break
         except OSError:
             pass
-        time.sleep(0.25)
+        time.sleep(1)
 
 try:
     go()

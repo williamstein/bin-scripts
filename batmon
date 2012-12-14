@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+
+import os, sys, time
+
+while True:
+    s = os.popen("acpi").read()
+    print "\n", s.split()[4],
+    sys.stdout.flush()
+    time.sleep(5)

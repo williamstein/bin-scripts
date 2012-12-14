@@ -11,6 +11,7 @@ if len(sys.argv) == 1:
 file = os.path.splitext(sys.argv[1])[0]
 
 cmd = 'pdflatex -synctex=1 -interaction=nonstopmode "\input" %s.tex'%file
+print cmd
 #cmd = 'pdflatex -synctex=1 "\input" %s.tex'%file
 os.system(cmd)
 

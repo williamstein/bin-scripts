@@ -7,7 +7,7 @@ def run(cmd):
 
 if sys.platform.startswith('linux'):
     args = ' '.join(sys.argv[1:])
-    cmd = 'emacs -geometry 86x40+276+25 %s &'%args
+    cmd = 'emacs -no-splash -geometry 86x40+276+25 %s 2>/dev/null&'%args
     run(cmd)
 
 elif sys.platform == 'darwin':
