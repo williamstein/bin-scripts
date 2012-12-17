@@ -4,6 +4,10 @@ import os, sys, time
 
 while True:
     s = os.popen("acpi").read()
-    print "\n", s.split()[4],
+    v = s.split()
+    if len(v) >= 5:
+        print "\n", s.split()[4],
+    else:
+        print "charging",
     sys.stdout.flush()
     time.sleep(5)
