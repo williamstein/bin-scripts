@@ -13,7 +13,12 @@ for file in watched_files:
     if not os.path.exists(file):
         raise RuntimeError, "The file %s must exist."%file
 
-t = dict([(name,os.path.getctime(name)) for name in watched_files])
+t = None
+def update_timestamps():
+    global t
+    t = dict([(name,os.path.getctime(name)) for name in watched_files])
+
+update_timestamps()
 
 print cmd; os.system(cmd)
 
@@ -27,7 +32,8 @@ def go():
                 except:
                     continue
                 if t2 != t[watch_file]:
-                    t[watch_file] = t2
+                    update_timestamps()
+                    print "%s changed"%watch_file
                     print cmd; os.system(cmd)
                     break
         except OSError:
@@ -38,4 +44,4 @@ try:
     go()
 except KeyboardInterrupt:
     print "Ctrl-C pressed; exiting watch."
-    
+

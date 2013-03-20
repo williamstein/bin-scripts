@@ -1,1 +1,5 @@
-open -a Gimp 
+if [ `uname` = "Linux" ];
+   then /usr/bin/gimp $@
+else
+   open -a Gimp
+fi; 
