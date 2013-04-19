@@ -1,0 +1,5 @@
+/etc/init.d/zfs-fuse start
+zpool import backup
+rsnapshot -v hourly
+df -h
+zpool export backup

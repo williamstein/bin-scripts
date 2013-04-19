@@ -1,0 +1,2 @@
+encfs ~/.box ~/box
+ls ~/box/

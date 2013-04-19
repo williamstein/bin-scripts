@@ -1,0 +1,4 @@
+croutonpowerd -i &
+sudo /etc/init.d/ssh start
+sudo mkdir /var/run/screen
+sudo chmod 777 /var/run/screen

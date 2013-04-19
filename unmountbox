@@ -1,0 +1,2 @@
+sudo fusermount -u /home/wstein/box
+ls /home/wstein/box/

@@ -1,0 +1,1 @@
+time rsync -axH /home/wstein/ pixel@05salvus:home/wstein/
