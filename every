@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+
+import os, sys
+
+while True:
+    os.system(' '.join(sys.argv[2:]))
+    time.sleep(int(sys.argv[1]))

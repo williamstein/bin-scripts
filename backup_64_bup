@@ -1,0 +1,21 @@
+
+/etc/init.d/zfs-fuse start                                                                                                           
+zpool import backup 
+df -h
+df
+
+export BUP_DIR=/backup/.bup/
+
+bup index Dropbox
+bup save -n dropbox Dropbox
+
+df -h
+df
+
+bup index salvus
+bup save -n salvus salvus
+
+
+df -h
+df
+

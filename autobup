@@ -1,0 +1,16 @@
+cd $HOME
+export BUP_DIR=$HOME/.bup
+
+du -sc ~/.bup
+
+bup index Dropbox
+bup save -n dropbox Dropbox
+
+bup index salvus
+bup save -n salvus salvus
+
+bup index .box
+bup save -n box .box 
+
+du -sc ~/.bup
+
