@@ -1,3 +1,4 @@
+date
 cd $HOME
 export BUP_DIR=$HOME/.bup
 
