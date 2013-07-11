@@ -1,0 +1,2 @@
+sudo cpufreq-set -g userspace
+sudo cpufreq-set -f 1800Mhz -r

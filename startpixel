@@ -1,4 +1,15 @@
 croutonpowerd -i &
+
+echo 100000 | sudo tee /proc/sys/fs/inotify/max_user_watches
+dropbox stop
+dropbox start
+
 sudo /etc/init.d/ssh start
 sudo mkdir /var/run/screen
 sudo chmod 777 /var/run/screen
+sudo /sbin/iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+
+echo "verify that there is swap"
+free |grep Swap
+
+# $HOME/salvus/salvus/start

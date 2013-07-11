@@ -3,5 +3,5 @@
 import os, sys, time 
 
 while True:
-    os.system(' '.join(sys.argv[2:]))
     time.sleep(int(sys.argv[1]))
+    os.system(' '.join(sys.argv[2:]))

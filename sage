@@ -1,1 +1,1 @@
-/home/wstein/sage/sage-5.9.rc0/sage
+/home/wstein/sage/sage-5.10/sage
