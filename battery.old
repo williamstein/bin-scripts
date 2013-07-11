@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+
+import os
+for r in os.popen("ioreg -l").readlines():
+    if 'CurrentCapacity' in r:
+        current = int(r.split()[4])
+    elif 'MaxCapacity' in r:
+        max = int(r.split()[4])
+print "Battery Charge: %s%%"%(100*current/max)

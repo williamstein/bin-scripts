@@ -9,6 +9,8 @@ sudo mkdir /var/run/screen
 sudo chmod 777 /var/run/screen
 sudo /sbin/iptables -A INPUT -p tcp --dport 443 -j ACCEPT
 
+sudo cpufreq-fast
+
 echo "verify that there is swap"
 free |grep Swap
 

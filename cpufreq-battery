@@ -1,1 +1,5 @@
+
+sudo cpufreq-set -g userspace
+sudo cpufreq-set -f 800Mhz -r
+
 sudo cpufreq-set -g conservative
