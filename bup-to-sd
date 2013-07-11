@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+export BUP_DIR="/media/removable/SD Card/bup"
+
+date
+cd $HOME
+
+time bup index /home/wstein/.box
+time bup save -n box /home/wstein/.box
+
+time bup index /home/wstein/Dropbox
+time bup save -n Dropbox /home/wstein/Dropbox
+
+date
+
+exit 0

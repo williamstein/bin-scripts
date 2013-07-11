@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+export BUP_DIR=$HOME/.bup
+
+time bup index "/media/removable/SD Card/" 
+time bup save --remote=pixel@05salvus: -n 6d "/media/removable/SD Card/"
+
+
+
+exit 0
