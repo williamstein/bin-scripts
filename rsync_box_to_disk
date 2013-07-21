@@ -1,0 +1,1 @@
+rsync -axvH .box disk.math.washington.edu:.box/

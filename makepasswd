@@ -4,7 +4,7 @@
 
 import os, random, string, sys
 
-alpha = '_' + string.ascii_letters + string.digits
+alpha = '_' + string.lowercase + string.digits
 
 if len(sys.argv) == 1:
     n = 8

@@ -8,10 +8,19 @@ sudo /etc/init.d/ssh start
 sudo mkdir /var/run/screen
 sudo chmod 777 /var/run/screen
 sudo /sbin/iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+sudo /sbin/iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+# sudo /sbin/iptables -A INPUT -p tcp --dport 665 -j ACCEPT
 
-sudo cpufreq-fast
+#sudo /home/wstein/salvus/salvus/data/local/sbin/tincd 
+
+#sudo /home/wstein/bin/cpufreq-fast
 
 echo "verify that there is swap"
 free |grep Swap
 
 # $HOME/salvus/salvus/start
+
+# disable crash reporter -- http://www.chromium.org/chromium-os/how-tos-and-troubleshooting/crash-reporting/faq#TOC-Does-crash_reporter-save-the-core-file-for-a-crash-
+
+sudo sh -c 'echo "/home/chronos/core.%e.%p" > /proc/sys/kernel/core_pattern'
+
