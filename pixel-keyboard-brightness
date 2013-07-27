@@ -29,4 +29,4 @@ if [ "$CURR" -lt "0" ]; then
     NEW=0
 fi
 
-sudo echo $NEW > $DEVFILE
+echo $NEW > $DEVFILE
