@@ -1,1 +1,1 @@
-chromium-browser --app=https://localhost &
+google-chrome --app=https://localhost &

@@ -1,1 +1,1 @@
-chromium-browser --app=https://cloud.sagemath.com &
+google-chrome --app=https://cloud.sagemath.com &
