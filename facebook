@@ -1,1 +1,1 @@
-chromium-browser --app=https://facebook.com &
+google-chrome --app=https://facebook.com &

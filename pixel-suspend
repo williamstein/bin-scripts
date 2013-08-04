@@ -1,1 +1,11 @@
-sudo pm-suspend
+#sudo chvt 1
+#sleep 5
+sudo pm-suspend  
+
+
+sudo killall upowerd  # so battery monitor works
+
+#sleep 10
+#sudo chvt 7
+
+

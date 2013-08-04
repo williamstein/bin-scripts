@@ -6,7 +6,9 @@ unset BUP_DIR
 date
 cd $HOME
 
-time bup index --exclude=/home/wstein/.Trash --exclude=/home/wstein/.bup --exclude=/home/wstein/box /home/wstein
+
+time bup index --exclude /home/wstein/box --exclude /home/wstein/tmp --exclude /home/wstein/Downloads --exclude /home/wstein/.Trash /home/wstein/
+
 time bup save -q --remote=pixel@05salvus: -n home /home/wstein
 
 

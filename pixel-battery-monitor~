@@ -1,0 +1,20 @@
+#!/usr/bin/env python
+
+import os,sys,time
+
+def monitor1():
+    a = open("/sys/devices/LNXSYSTM:00/device:00/PNP0A08:00/device:20/PNP0C09:00/PNP0C0A:00/power_supply/BAT0/capacity").read().strip()
+    c = os.popen("battery|grep time").read().strip()
+    i = c.find(":"); c = c[i+1:].strip()
+    return "battery %s%% (%s, %s)"%(a, c, os.popen('date').read().strip())
+
+while 1:
+    s = monitor1()
+    print s
+    sys.stdout.write("\x1b]2;%s\x07"%s)
+    sys.stdout.flush()
+    time.sleep(6)
+
+
+
+

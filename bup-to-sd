@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 
+sudo mount /mnt/sd
+
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
-export BUP_DIR="/media/removable/SD Card/bup"
+export BUP_DIR="/mnt/sd/bup"
 
 date
 cd $HOME
 
-time bup index /home/wstein/.box
-time bup save -n box /home/wstein/.box
-
-time bup index /home/wstein/Dropbox
-time bup save -n Dropbox /home/wstein/Dropbox
+time bup index --exclude /home/wstein/box --exclude /home/wstein/tmp --exclude /home/wstein/Downloads --exclude /home/wstein/.Trash /home/wstein/
+time bup save --strip -n wstein /home/wstein/
 
 date
 
