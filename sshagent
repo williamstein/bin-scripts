@@ -1,0 +1,7 @@
+ssh-agent |grep AUTH > $HOME/.ssh/agent
+
+. $HOME/.ssh/agent
+
+ssh-add
+
+echo "Newly opened shells will work."

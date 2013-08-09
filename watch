@@ -22,7 +22,9 @@ def go():
             if t2 != t:
                 t = t2
                 print cmd
+                print "\x1b]2;%s\x07"%cmd
                 os.system(cmd)
+                print "\x1b]2;Watching...\x07"
         except OSError:
             pass
         time.sleep(0.25)

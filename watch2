@@ -20,7 +20,13 @@ def update_timestamps():
 
 update_timestamps()
 
-print cmd; os.system(cmd)
+def run():
+    print "\x1b]2;* Running %s\x07"%cmd
+    print cmd; os.system(cmd)
+    print "\x1b]2;Watching...\x07"
+
+
+run()
 
 def go():
     global t
@@ -34,7 +40,7 @@ def go():
                 if t2 != t[watch_file]:
                     update_timestamps()
                     print "%s changed"%watch_file
-                    print cmd; os.system(cmd)
+                    run()
                     break
         except OSError:
             pass

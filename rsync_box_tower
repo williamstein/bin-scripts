@@ -1,0 +1,1 @@
+rsync -axvH .box/ pixel@05salvus:.box/

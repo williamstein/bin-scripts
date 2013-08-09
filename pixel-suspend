@@ -1,11 +1,64 @@
+#!/usr/bin/env python
+
+import os, signal, sys
+
 #sudo chvt 1
 #sleep 5
-sudo pm-suspend  
+
+def cmd(s):
+    print s
+    os.system(s)
+
+# keys to the kingdom
+cmd("killall ssh-agent")
+cmd("umountbox")
+
+if '/box' in os.popen("df").read():
+    print "\n"
+    print "*"*70
+    print "* Close anything using box and try again"
+    print "*"*70
+    print "\n"
+    sys.exit(1)
+
+_alarm_time=0
+def __mysig(a,b):
+    raise KeyboardInterrupt, "computation timed out because alarm was set for %s seconds"%__alarm_time
+
+def alarm(seconds):
+    seconds = int(seconds)
+    # Set our alarm signal handler. 
+    signal.signal(signal.SIGALRM, __mysig)
+    global __alarm_time
+    __alarm_time = seconds
+    signal.alarm(seconds)
+
+def cancel_alarm():
+    signal.signal(signal.SIGALRM, signal.SIG_IGN)
+
+def confirm_resume():
+    try:
+        alarm(15)
+        r = raw_input("Press any key to resume (will suspend in 15 seconds)... ")
+        return True
+    except:
+        return False
+    finally:
+        cancel_alarm()
+
+while True:
+    cmd("sudo pm-suspend")
+    if confirm_resume():
+        break
 
 
-sudo killall upowerd  # so battery monitor works
+# coming back up...
 
-#sleep 10
+cmd("sshagent")
+
+
+# other things I tried...
+#sudo killall upowerd  # so battery monitor works
 #sudo chvt 7
 
 

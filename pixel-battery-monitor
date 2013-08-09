@@ -6,6 +6,7 @@ def monitor1():
     a = open("/sys/devices/LNXSYSTM:00/device:00/PNP0A08:00/device:20/PNP0C09:00/PNP0C0A:00/power_supply/BAT0/capacity").read().strip()
     c = os.popen("battery|grep time").read().strip()
     if "cannot" in c.lower():
+        print "Killing upowerd"
         os.system("sudo killall upowerd")
         c = os.popen("battery|grep time").read().strip()
     i = c.find(":"); c = c[i+1:].strip()

@@ -2,13 +2,28 @@
 
 # By William Stein, January, 2004.
 
-import os, random, string, sys
+import os, random, string, sys, time
 
-alpha = '_' + string.lowercase + string.digits
+alpha = string.lowercase + string.digits
 
 if len(sys.argv) == 1:
-    n = 8
+    n = 15
 else:
     n = int(sys.argv[1])
-print ''.join([random.choice(alpha) for _ in range(n)])
+
+if len(sys.argv) >= 3:
+    k = int(sys.argv[2])
+else:
+    k = 1
+
+for i in range(k):
+    gps = 1e15  # current 25 GPU cluster record is 3e11, so govt level GPU cluster would be easily 1000 times that.
+    crack = len(alpha)**n / gps / 3600. / 24. / 365. 
+
+    print "crack time: %.2f years"%crack
+
+    passwd = ''.join([random.choice(alpha) for _ in range(n)])
+
+    date = time.strftime("%Y-%m-%d")
+    print "password-%s: %s"%(date, passwd)
     
