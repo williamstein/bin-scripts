@@ -39,7 +39,7 @@ def cancel_alarm():
 def confirm_resume():
     try:
         alarm(15)
-        r = raw_input("Press any key to resume (will suspend in 15 seconds)... ")
+        r = raw_input("Press [enter] to resume (will suspend in 15 seconds)... ")
         return True
     except:
         return False
