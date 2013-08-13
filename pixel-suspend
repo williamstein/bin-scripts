@@ -38,8 +38,8 @@ def cancel_alarm():
 
 def confirm_resume():
     try:
-        alarm(15)
-        r = raw_input("Press [enter] to resume (will suspend in 15 seconds)... ")
+        alarm(30)
+        r = raw_input("Press [enter] to resume (will suspend in 30 seconds)... ")
         return True
     except:
         return False
@@ -47,14 +47,15 @@ def confirm_resume():
         cancel_alarm()
 
 while True:
+    cmd("pixel-lock&")
     cmd("sudo pm-suspend")
+    cmd("pixel-fixmouse")
     if confirm_resume():
         break
 
 
 # coming back up...
 
-cmd("sshagent")
 
 
 # other things I tried...
