@@ -1,3 +1,7 @@
-encfs --idle=30 ~/.box ~/box
+#!/usr/bin/env bash
+
+encfs --idle=5 ~/.box ~/box
 ls ~/box/
 
+
+enter_box

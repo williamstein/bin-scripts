@@ -5,17 +5,21 @@
 #xinput set-button-map 11 1 1 2 4 5 6 7 8 9
 
 # Enable tinc vpn
-#sudo /home/wstein/salvus/salvus/data/local/sbin/tincd
+
+sudo /home/wstein/salvus/salvus/data/local/sbin/tincd
 
 sudo mount /mnt/sd
 
 echo 100000 | sudo tee /proc/sys/fs/inotify/max_user_watches
 dropbox stop
-dropbox start
+#dropbox start
 
-cd $HOME/salvus/salvus
-. salvus-env
-./start_salvus
+#cd $HOME/salvus/salvus
+#. salvus-env
+#./start_salvus
 
 $HOME/.xprofile
+
+
+syndaemon -i 1 -m 100 -d -R
 
