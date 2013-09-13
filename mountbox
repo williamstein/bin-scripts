@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-encfs --idle=5 ~/.box ~/box
+encfs --idle=20 ~/.box ~/box
 ls ~/box/
 
 

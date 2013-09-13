@@ -38,9 +38,9 @@ def cancel_alarm():
 
 def confirm_resume():
     try:
-        alarm(45)
+        alarm(75)
         # I use getpass, since sometimes I accidentally type my password here...
-        import getpass; getpass.getpass('Press [enter] to resume (will suspend in 45 seconds)... ')
+        import getpass; getpass.getpass('Press [enter] to resume (will suspend in 75 seconds)... ')
 
         return True
     except:

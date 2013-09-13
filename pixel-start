@@ -23,3 +23,4 @@ $HOME/.xprofile
 
 syndaemon -i 1 -m 100 -d -R
 
+synclient  MinSpeed=.02; synclient AccelFactor=.15; synclient MaxSpeed=.5; synclient MaxDoubleTapTime=80; synclient MaxTapTime=80
